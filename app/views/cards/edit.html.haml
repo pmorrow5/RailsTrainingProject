@@ -1,0 +1,7 @@
+%h1 Editing Card
+
+= render 'form'
+
+= link_to 'Back', root_path, class: "btn btn-info"
+\|
+= link_to 'Delete', deck_card_path(@deck,@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"

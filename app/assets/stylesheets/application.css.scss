@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+	background-color: white;
+}
+
+
+nav {
+  .navbar-brand {
+    a {
+      color: #F7C21A;
+      font-weight: bold;
+      font-size: 1.6em;
+    &:hover {
+        color: #ffffff;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.hello_user {
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+}
+.deck-title-box {
+  background-color: #222222;
+  height: 300px;
+  width: 500px;
+  text-align: center;
+    a {
+      color: #F7C21A;
+    &:hover {
+      color: #ffffff;
+      text-decoration: none;;
+      }
+    }
+  }
+  .card {
+    color: #F7C21A;
+    margin: auto auto auto auto;
+    padding: 80px 15px 70px 15px;
+}
+.card-cards {
+    color: #F7C21A;
+    margin: auto auto auto auto;
+    padding: 0px 15px 70px 15px;
+}
+  
+  h2, h3 {
+    color: #F7C21A;
+  }
+.card-title-box {
+  background-color: #222222;
+  height: 300px;
+  width: 500px;
+  text-align: center;
+    a {
+      color: #ffffff;
+    &:hover {
+      color: #F7C21A;
+      text-decoration: none;;
+      }
+    }
+  }
+.show-card-box {
+  background-color: #222222;
+  height: 300px;
+  width: 500px;
+  text-align: center;
+  color: #F7C21A;
+  padding: 60px 15px 70px 15px;
+    a {
+      color: #ffffff;
+    &:hover {
+      color: #F7C21A;
+      text-decoration: none;;
+      }
+    }
+  }
+.panel-body {
+  h1 {
+    color: #F7C21A;
+  }
+}
+.forms-field {
+  color: #F7C21A;
+  padding: 0 100px 0 100px;
+  h1 {
+    margin-left: 100px;
+  }
+}
+.deck-button {
+  a {
+    color: #ffffff;
+  &:hover {
+    color: #F7C21A;
+    }
+  }
+}

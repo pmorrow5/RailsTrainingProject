@@ -1,0 +1,16 @@
+= form_for @deck do |f|
+  - if @deck.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@deck.errors.count, "error")} prohibited this deck from being saved:"
+      %ul
+        - @deck.errors.full_messages.each do |msg|
+          %li= "Message: " + msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_field :description
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,19 @@
+.col-sm-8.col-sm-offset-2
+  %h1 Listing Decks
+  - if @decks = 0
+    %p
+      No Decks Exist.
+    %br
+    =link_to "Create New Deck", new_deck_path, class: "btn btn-info"
+  -else
+    - @decks.each do |deck|
+      
+      .box.panel.panel-default.deck-title-box
+        -card = Card.where(deck_id: deck).first
+        -if card != nil
+          %h3= link_to deck.title, deck_card_path(deck,card), class:"card-title"
+        -else
+          %h3= link_to deck.title, deck, class:"card-title"
+        .card.deck-button
+          = link_to 'Info', deck, class: "btn btn-info"
+          = button_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"

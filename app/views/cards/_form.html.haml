@@ -1,0 +1,19 @@
+= form_for :card, url: deck_cards_path do |f|
+  - if @card.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@card.errors.count, "error")} prohibited this deck from being saved:"
+      %ul
+        - @card.errors.full_messages.each do |msg|
+          %li= "Message: " + msg
+          %li= @card.deck_id
+
+  .field
+    = f.label :prompt
+    = f.text_field :prompt
+  .field
+    = f.label :answer
+    = f.text_field :answer
+
+
+  .actions
+    = f.submit 'Save', class: "btn btn-secondary"
