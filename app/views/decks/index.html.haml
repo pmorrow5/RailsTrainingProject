@@ -1,6 +1,6 @@
 .col-sm-8.col-sm-offset-2
   %h1 Listing Decks
-  - if @decks = 0
+  - if @decks.empty?
     %p
       No Decks Exist.
     %br

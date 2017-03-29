@@ -33,7 +33,7 @@ class CardsController < ApplicationController
 	    @card = @deck.cards.create(card_params)
 	    respond_to do |format|
 	      if @card.save
-	        format.html { redirect_to deck, notice: 'Card was successfully created.' }
+	        format.html { redirect_to deck_card_path(id: @card.id), notice: 'Card was successfully created.' }
 	        format.json { render :show, status: :created, location: @card }
 	      else
 	        format.html { render :new }
