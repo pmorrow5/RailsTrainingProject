@@ -7,6 +7,6 @@
   %b Back:
   = @card.answer
 %p
-  = link_to 'Edit Card', edit_deck_card_path(@card.deck_id,@card)
+  = link_to '', deck_path(@deck.id), class: "btn btn-warning glyphicon glyphicon-arrow-left"
   \|
-  = link_to 'Back', deck_path(@deck.id)
+  = link_to '', edit_deck_card_path(@card.deck_id,@card), class: "btn btn-info glyphicon glyphicon-pencil"

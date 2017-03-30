@@ -1,20 +1,22 @@
 %p#notice= notice
 
 %h1
-  = @deck.title
+  %div
+    = @deck.title
+    = link_to '', edit_deck_path(@deck), class: "btn btn-info glyphicon glyphicon-pencil"
 %p
   = @deck.description
 
 %h1="Cards"
 
 %div
-.card-list
   -cards = @deck.cards
   -if cards.size == 0
     %em="No Cards Found"
   -else
   %ul
-    .list-group 
+  .card-list
+  .list-group 
     -cards.each do |card|
       .list-group-item
         .inner-term
@@ -26,9 +28,10 @@
             = card.answer
           %div
           .term-buttons
-            = link_to 'Edit', edit_deck_card_path(@deck, card)
+            = link_to '', edit_deck_card_path(@deck, card), class: "btn btn-info glyphicon glyphicon-pencil"
+            = link_to '', deck_card_path(@deck,card), data: { confirm: 'Are you sure?', method: :Delete}, class: "btn btn-danger glyphicon glyphicon-remove"
+    .list-group-item
+      = link_to '', new_deck_card_path(deck_id: @deck.id), class: "wide btn btn-success glyphicon glyphicon-plus"
 %p
-  = link_to 'Add Card', new_deck_card_path(deck_id: @deck.id)
-  = link_to 'Edit Deck', edit_deck_path(@deck)
-  \|
-  = link_to 'Back', decks_path
+  = link_to '', decks_path, class: "btn btn-warning glyphicon glyphicon-arrow-left"
+  

@@ -11,10 +11,9 @@
 
   = f.input :prompt 
   = f.input :answer 
-  = f.button :submit, class: "btn btn-secondary"
-
-
-  
-= link_to 'Back', deck_card_path(@deck,@card), class: "btn btn-info"
-\|
-= link_to 'Delete', deck_card_path(@deck,@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+  = link_to '', deck_card_path(@deck,@card), class: "btn btn-warning glyphicon glyphicon-arrow-left"
+  \|
+  = link_to "", deck_card_path(@deck,@card), data: { confirm: 'Are you sure?', method: :Delete}, class: "btn btn-danger glyphicon glyphicon-remove"
+  \|
+  = f.button :button, class: 'btn btn-success' do 
+    %span.glyphicon.glyphicon-ok

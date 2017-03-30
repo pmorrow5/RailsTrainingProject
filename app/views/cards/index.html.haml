@@ -12,7 +12,7 @@
     - @cards.each do |card|
       %tr
         %td= link_to card.prompt, deck_card_path(id: card.id)
-        %td= button_to 'Destroy', deck_card_path(@deck, card), method: :delete, data: { :confirm => 'Are you sure?' }
+        %td= link_to '', deck_card_path(@deck, card), method: :delete, data: { :confirm => 'Are you sure?' }, class: "btn btn-danger glyphicon glyphicon-remove"
 
 %br
 

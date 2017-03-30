@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
 	before_action :find_card, only: [:show, :edit, :update, :destroy]
-	before_action :find_deck, only: [:create, :edit, :update, :destroy, :index, :show]
+	before_action :find_deck, only: [:create, :edit, :update, :destroy, :index, :show, :new]
 
 	def find_card
 	  @card = Card.find(params[:id])
@@ -34,7 +34,13 @@ class CardsController < ApplicationController
     end
 
 	def destroy
-	end
+      @card.destroy
+
+      respond_to do |format|
+        format.html { redirect_to deck_path(@deck) }
+        format.xml  { head :ok }
+    end
+  end
 
 	def create
 	    @card = @deck.cards.create(card_params)

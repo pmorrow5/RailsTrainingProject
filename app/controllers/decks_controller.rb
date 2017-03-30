@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   before_action :set_deck, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /decks
   # GET /decks.json
   def index

@@ -11,5 +11,4 @@
       .box.panel.panel-default.deck-title-box
         %h3= link_to deck.title, deck, class:"card-title"
         .card.deck-button
-          = link_to 'Info', deck, class: "btn btn-info"
-          = button_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+          = link_to '', deck, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger glyphicon glyphicon-remove"
