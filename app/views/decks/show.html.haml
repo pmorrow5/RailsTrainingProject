@@ -1,27 +1,34 @@
 %p#notice= notice
 
-%p
-  %b Title:
+%h1
   = @deck.title
 %p
-  %b Description:
   = @deck.description
 
 %h1="Cards"
 
 %div
+.card-list
   -cards = @deck.cards
   -if cards.size == 0
     %em="No Cards Found"
-  -else 
-  -cards.each do |card|
-    .box.panel.panel-default.show-card-box
-      %p
-        %h3= card.prompt
-        .card.deck-button
-          = link_to 'Edit', edit_deck_card_path(@deck, card)
-  %p
-    = link_to 'Add Card', new_deck_card_path(deck_id: @deck.id)
-    = link_to 'Edit Deck', edit_deck_path(@deck)
-    \|
-    = link_to 'Back', decks_path
+  -else
+  %ul
+    .list-group 
+    -cards.each do |card|
+      .list-group-item
+        .inner-term
+          %div
+          .term-prompt
+            = card.prompt
+          %div
+          .term-answer
+            = card.answer
+          %div
+          .term-buttons
+            = link_to 'Edit', edit_deck_card_path(@deck, card)
+%p
+  = link_to 'Add Card', new_deck_card_path(deck_id: @deck.id)
+  = link_to 'Edit Deck', edit_deck_path(@deck)
+  \|
+  = link_to 'Back', decks_path

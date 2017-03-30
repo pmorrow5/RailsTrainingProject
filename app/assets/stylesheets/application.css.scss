@@ -21,6 +21,10 @@ body{
 	background-color: white;
 }
 
+.nav > li {
+  position: relative;
+  display: inline-block;
+}
 
 nav {
   .navbar-brand {
@@ -115,4 +119,25 @@ nav {
     color: #F7C21A;
     }
   }
+}
+
+.inner-term{
+	display: inline-block;
+	width: 100%;
+	margin-right: 10px;
+}
+
+.term-prompt, .term-answer, .term-buttons{
+	float:left;
+	text-align: right;
+	margin: 5px;
+	min-width: 30%;
+}
+
+.term-prompt, .term-answer{
+text-align: left;
+}
+
+.card-list{
+
 }
