@@ -19,6 +19,7 @@ class DecksController < ApplicationController
 
   # GET /decks/1/edit
   def edit
+    
   end
 
   # POST /decks

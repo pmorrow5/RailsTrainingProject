@@ -1,7 +1,20 @@
 %h1 Editing Card
 
-= render 'form'
+= simple_form_for :card, url: deck_card_path(@deck,@card), action: "update", method: :put do |f|
+  - if @card.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@card.errors.count, "error")} prohibited this deck from being saved:"
+      %ul
+        - @card.errors.full_messages.each do |msg|
+          %li= "Message: " + msg
+          %li= @card.deck_id 
 
+  = f.input :prompt 
+  = f.input :answer 
+  = f.button :submit, class: "btn btn-secondary"
+
+
+  
 = link_to 'Back', deck_card_path(@deck,@card), class: "btn btn-info"
 \|
 = link_to 'Delete', deck_card_path(@deck,@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
