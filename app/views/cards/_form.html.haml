@@ -8,12 +8,15 @@
           %li= @card.deck_id
 
   .field
-    = f.label :prompt
-    = f.text_field :prompt
+    = f.label :prompt, "Front"
+    = f.text_field :prompt, placeholder: "Term" 
   .field
-    = f.label :answer
-    = f.text_field :answer
+    = f.label :answer, "Back"
+    = f.text_field :answer, placeholder: "Definition"
 
   .actions
     -#This button should be able to add new cards and edit existing cards.
-    = f.submit 'Save', class: "btn btn-success"
+    
+    = link_to '', deck_path(@deck), class: "btn btn-warning glyphicon glyphicon-arrow-left"
+    = f.button :button, class: 'btn btn-success' do 
+      %span.glyphicon.glyphicon-ok

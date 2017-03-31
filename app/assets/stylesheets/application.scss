@@ -48,7 +48,7 @@ nav {
   cursor: default;
 }
 .deck-title-box {
-  background-color: #222222;
+  background-color: #ffffff;
   height: 300px;
   width: 500px;
   text-align: center;
@@ -61,7 +61,6 @@ nav {
     }
   }
   .card {
-    color: #000000;
     margin: auto auto auto auto;
     padding: 80px 15px 70px 15px;
 }
@@ -74,10 +73,30 @@ nav {
   h2, h3 {
     color: #F7C21A;
   }
+
+.card-title{
+  position: relative;
+  top:20%;
+}
+
+.card-next-btn{
+  float: right;
+  height: 100%;
+}
+
+.card-back-btn{
+  float: left;
+  height: 100%;
+}
+
+.card-btn-glyph{
+  top:50%;
+}
+
 .card-title-box {
-  background-color: #222222;
-  height: 300px;
-  width: 500px;
+  background-color: #f1f1f1;
+  height: 400px;
+  width: 80%;
   text-align: center;
     a {
       color: #ffffff;
@@ -87,8 +106,13 @@ nav {
       }
     }
   }
+
+.card-click-area{
+  background-color: #ffffff;
+}
+
 .show-card-box {
-  background-color: #222222;
+  background-color: #34ff00;
   height: 300px;
   width: 500px;
   text-align: center;
@@ -161,4 +185,76 @@ text-overflow: ellipsis;
 .card-list{
   margin-right: 0px;
   margin-left: 0px;
+}
+
+#card {
+  display: block;
+  position: absolute;
+  width: 55%;
+  height: 400px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+#card:focus {
+  outline: none;
+}
+
+#card figure {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 2em;
+  text-align: center;
+  display: block;
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#front {
+  color: rgb(63, 113, 227);
+  top: 125px;
+  position: relative;
+}
+
+#back {
+  color: rgb(108, 171, 241);
+  transform: rotateX(180deg);
+  position: relative;
+  top: 200px;
+  display:none;
+}
+
+.flipped {
+  transform: rotateX(180deg);
+}
+
+.button {
+  height: 50px;
+  width: 100px;
+  margin: auto;
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  background-color: #e74c3c;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#progress {
+  font-style: italic;
+}
+
+@media only screen and (min-width: 400px) {
+
+  #card figure {
+    font-size: 2.5em;
+  }
 }

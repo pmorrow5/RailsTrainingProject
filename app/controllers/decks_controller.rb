@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-  before_action :set_deck, only: [:show, :edit, :update, :destroy]
+  before_action :set_deck, only: [:show, :edit, :update, :destroy, :present]
   
   # GET /decks
   # GET /decks.json
@@ -17,12 +17,7 @@ class DecksController < ApplicationController
     @deck = Deck.new
   end
 
-  # GET /decks/1/edit
-  def edit
-    
-  end
-
-  # POST /decks
+# POST /decks
   # POST /decks.json
   def create
     @deck = Deck.new(deck_params)
@@ -38,7 +33,12 @@ class DecksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /decks/1
+  # GET /decks/1/edit
+  def edit
+    
+  end
+
+    # PATCH/PUT /decks/1
   # PATCH/PUT /decks/1.json
   def update
     respond_to do |format|

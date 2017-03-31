@@ -1,0 +1,34 @@
+%div
+.card
+  .box.panel.card-title-box
+    %div{id: "card", class: "card-click-area"}
+      %h3{id: "front" }
+        =@card.prompt
+      %h3{id: "back"}
+        =@card.answer
+
+  -index = @index + 1
+      
+  -if lastIndex = 1 
+    = link_to '', deck_card_present_path(@deck.id, index), class: "btn card-back-btn btn-warning glyphicon glyphicon-arrow-left"
+  -else
+    = link_to '', deck_path(@deck_id), class: "btn card-back-btn btn-warning glyphicon glyphicon-arrow-left"
+  -if @cards.length > index
+    = link_to '', deck_card_present_path(@deck.id,index), class: "btn card-next-btn btn-primary glyphicon glyphicon-arrow-right"
+  -else
+    = link_to '', deck_path(@deck.id), class: "btn card-next-btn btn-primary glyphicon glyphicon-arrow-right"
+    
+-#<body>
+-#<div class="app">
+-#<div class="header">Flip cards</div>
+-#    <div class="container">
+-#      <div id="card">
+-#        <figure id="front"></figure>
+-#        <figure id="back"></figure>
+-#      </div>
+-#    </div>
+-#    <div id="progress"></div>
+-#  </div>
+-#</body>
+
+-#</html>

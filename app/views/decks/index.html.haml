@@ -1,5 +1,5 @@
 .col-sm-8.col-sm-offset-2
-  %h1 Listing Decks
+  %h1 Decks
   - if @decks.empty?
     %p
       No Decks Exist.
@@ -7,7 +7,6 @@
     =link_to "Create New Deck", new_deck_path, class: "btn btn-info"
   -else
     - @decks.each do |deck|
-      
       .box.panel.panel-default.deck-title-box
         %h3= link_to deck.title, deck, class:"card-title"
         .card.deck-button

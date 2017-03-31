@@ -15,3 +15,30 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+$(document).on('turbolinks:load', function() {
+
+  $('#card').click(function() {
+    if ($('#card').hasClass('flipped')) {
+      $('#front').show();
+      $('#back').hide();
+    }else{
+      $('#back').show();
+      $('#front').hide();
+    };
+    $('#card').toggleClass('flipped');
+  });
+
+  var i = 1;
+  $("#btn").click(function() {
+    
+    var q = term;
+    var a = definition;
+    setTimeout(function() {
+      $('#front').text(q);
+      $('#back').text(a);
+    }, 150);
+  })
+})
