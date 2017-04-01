@@ -7,10 +7,13 @@
           %li= "Message: " + msg
 
   .field
-    = f.label :title, placeholder: "Term"
-    = f.text_field :title, placeholder: "Definition"
+    = f.label :title
+    = f.text_field :title, placeholder: "Term" 
   .field
     = f.label :description
-    = f.text_field :description
+    = f.text_field :description, placeholder: "Definition"
   .actions
-    = f.submit 'Save'
+    = link_to '', root_path, class: "btn btn-warning glyphicon glyphicon-arrow-left"
+    \|
+    = f.button :button, class: 'btn btn-success' do 
+      %span.glyphicon.glyphicon-ok

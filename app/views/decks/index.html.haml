@@ -1,5 +1,8 @@
 .col-sm-8.col-sm-offset-2
-  %h1 Decks
+  %h1
+    %div 
+      Decks     
+      = link_to "", new_deck_path, class: "btn btn-success glyphicon glyphicon-plus"
   - if @decks.empty?
     %p
       No Decks Exist.
@@ -8,6 +11,12 @@
   -else
     - @decks.each do |deck|
       .box.panel.panel-default.deck-title-box
-        %h3= link_to deck.title, deck, class:"card-title"
-        .card.deck-button
+        %h1= link_to deck.title, deck, class: "deck-title"
+        %h3
+        .deck-descrip
+          = deck.description
+        .deck-button
+          = link_to '', edit_deck_path(deck), class: "btn btn-info glyphicon glyphicon-pencil"
+          \|
           = link_to '', deck, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger glyphicon glyphicon-remove"
+

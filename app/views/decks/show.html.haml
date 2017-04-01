@@ -1,9 +1,13 @@
 %p#notice= notice
-
 %h1
-  %div
+  -playClass = "btn btn-primary glyphicon glyphicon-play"
+  -if @cards.size == 0
+    -playClass = playClass + " disabled"
+  %div 
     = @deck.title
-    = link_to '', deck_card_present_path(@deck.id,0), class: "btn btn-primary glyphicon glyphicon-play"
+    = link_to '', deck_card_present_path(@deck.id,0), id: "play", class: playClass
+
+    -#disable play button if cards.size = 0
     = link_to '', edit_deck_path(@deck), class: "btn btn-info glyphicon glyphicon-pencil"
 %p
   = @deck.description
@@ -11,28 +15,33 @@
 %h1="Cards"
 
 %div
-  -cards = @deck.cards
-  -if cards.size == 0
-    %em="No Cards Found"
-  -else
   %ul
   .card-list
-  .list-group 
-    -cards.each do |card|
-      .list-group-item
+  .list-group
+    -if @cards.size == 0
+      %em="No Cards Found"
+    -else
+      .list-group-header
         .inner-term
           %div
           .term-prompt
-            = card.prompt
+            = "Term"
           %div
           .term-answer
-            = card.answer
-          %div
-          .term-buttons
-            = link_to '', edit_deck_card_path(@deck, card), class: "btn btn-info glyphicon glyphicon-pencil"
-            = link_to '', deck_card_path(@deck,card), data: { confirm: 'Are you sure?', method: :Delete}, class: "btn btn-danger glyphicon glyphicon-remove"
+            = "Definition"
+      -@cards.each do |card|
+        .list-group-item
+          .inner-term
+            %div{class: "term-prompt", title: card.prompt}
+              = card.prompt
+            %div{class: "term-answer", title: card.answer}
+              = card.answer
+            %div
+            .term-buttons
+              = link_to '', edit_deck_card_path(@deck, card), class: "btn btn-info glyphicon glyphicon-pencil"
+              = link_to '', deck_card_path(@deck,card), data: { confirm: 'Are you sure?', method: :Delete}, class: "btn btn-danger glyphicon glyphicon-remove"
     .list-group-item
-      = link_to '', new_deck_card_path(deck_id: @deck.id), class: "wide btn btn-success glyphicon glyphicon-plus"
+      = link_to 'Add Card', new_deck_card_path(deck_id: @deck.id), class: "center btn btn-success glyphicon glyphicon-plus"
 %p
   = link_to '', decks_path, class: "btn btn-warning glyphicon glyphicon-arrow-left"
   

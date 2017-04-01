@@ -41,4 +41,5 @@ $(document).on('turbolinks:load', function() {
       $('#back').text(a);
     }, 150);
   })
+
 })

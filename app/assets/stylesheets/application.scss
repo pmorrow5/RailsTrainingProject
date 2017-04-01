@@ -23,6 +23,10 @@ body{
   margin-right: 20%;
 }
 
+a:visited{
+  
+}
+
 .nav > li {
   position: relative;
   display: inline-block;
@@ -51,11 +55,12 @@ nav {
   background-color: #ffffff;
   height: 300px;
   width: 500px;
+  position: relative;
   text-align: center;
     a {
       color: #F7C21A;
     &:hover {
-      color: #ffffff;
+      color: #000000;
       text-decoration: none;;
       }
     }
@@ -74,9 +79,30 @@ nav {
     color: #F7C21A;
   }
 
+.add-deck{
+  width: 500px;
+}
+
+.deck-title{
+  font-size: xx-large;
+  font-weight: 900;
+  margin:auto;
+}
+
+.deck-descrip{
+  color: #9e8a4c;
+}
+
 .card-title{
   position: relative;
   top:20%;
+}
+
+.deck-button{
+  float:right;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
 }
 
 .card-next-btn{
@@ -153,6 +179,10 @@ nav {
 	margin-right: 10px;
 }
 
+.inner-term-header{
+
+}
+
 .term-prompt, .term-answer, .term-buttons{
 	display:block;
 	white-space: nowrap;
@@ -160,11 +190,25 @@ nav {
 	text-align: right;
 	margin: 5px;
 	width: 30%;
-    height: 30px;
+  height: 30px;
 	text-overflow: ellipsis;
 }
 
-.term-prompt, .term-answer{
+ .list-group-header{
+  position: relative;
+  display: block;
+  margin-bottom: -1px;
+  background-color: black;
+  border: 1px solid #ddd;
+  background-color: white;
+  color: #F7C21A;
+  font-weight: 900;
+  height:35px;
+  margin: 0px;
+  padding-left: 14px;
+ }
+
+.term-prompt-header, .term-answer-header, .term-prompt, .term-answer{
 text-align: left;
 overflow: hidden;
 text-overflow: ellipsis;
@@ -178,8 +222,8 @@ text-overflow: ellipsis;
   margin-right: 50%;
 }
 
-.wide{
- width: 100%;
+.center{
+ margin-left: 40%;
 }
 
 .card-list{
