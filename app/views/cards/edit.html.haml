@@ -12,8 +12,8 @@
     = f.input :prompt, placeholder: "Term", input_html:{class: "form-control"}
     = f.input :answer, placeholder: "Definition", input_html:{ class: "form-control"}
   = link_to '', deck_path(@deck), class: "btn btn-warning glyphicon glyphicon-arrow-left"
-  \|
+
   = link_to "", deck_card_path(@deck,@card), data: { confirm: 'Are you sure?', method: :Delete}, class: "btn btn-danger glyphicon glyphicon-remove"
-  \|
+
   = f.button :button, class: 'btn btn-success' do 
     %span.glyphicon.glyphicon-ok

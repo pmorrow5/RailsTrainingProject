@@ -31,15 +31,10 @@ $(document).on('turbolinks:load', function() {
     $('#card').toggleClass('flipped');
   });
 
-  var i = 1;
-  $("#btn").click(function() {
-    
-    var q = term;
-    var a = definition;
-    setTimeout(function() {
-      $('#front').text(q);
-      $('#back').text(a);
-    }, 150);
+  $('#add-card').click(function() {
+    $('#add-card-container').hide();
+    $('#term-input-container').show();
   })
 
+  
 })

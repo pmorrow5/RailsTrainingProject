@@ -1,4 +1,5 @@
 class DecksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_deck, only: [:show, :edit, :update, :destroy, :present]
   
   # GET /decks
@@ -11,6 +12,7 @@ class DecksController < ApplicationController
   # GET /decks/1.json
   def show
     @cards = @deck.cards
+    @card = Card.new
   end
 
   # GET /decks/new
@@ -25,7 +27,7 @@ class DecksController < ApplicationController
 
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to @deck, notice: 'Deck was successfully created.' }
+        format.html { redirect_to @deck}
         format.json { render :show, status: :created, location: @deck }
       else
         format.html { render :new }
@@ -44,7 +46,7 @@ class DecksController < ApplicationController
   def update
     respond_to do |format|
       if @deck.update(deck_params)
-        format.html { redirect_to @deck, notice: 'Deck was successfully updated.' }
+        format.html { redirect_to @deck}
         format.json { render :show, status: :ok, location: @deck }
       else
         format.html { render :edit }

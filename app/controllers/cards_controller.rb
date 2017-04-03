@@ -1,14 +1,7 @@
 class CardsController < ApplicationController
+	before_action :authenticate_user!
 	before_action :find_card, only: [:show, :edit, :update, :destroy]
 	before_action :find_deck, only: [:create, :edit, :update, :destroy, :index, :show, :new, :present]
-
-	def find_card
-	  @card = Card.find(params[:id])
-	end
-
-	def find_deck
-	  @deck = Deck.find(params[:deck_id])
-	end
 
     def present
       @index = params[:card_id].to_i
@@ -30,7 +23,7 @@ class CardsController < ApplicationController
 	def update
       respond_to do |format|
         if @card.update(card_params)
-          format.html { redirect_to deck_path(@deck), notice: 'Card was successfully updated.' }
+          format.html { redirect_to deck_path(@deck)}
           format.json { render :show, status: :ok, location: @card }
         else
           format.html { render :edit }
@@ -49,11 +42,12 @@ class CardsController < ApplicationController
   end
 
 	def create
+		flash.now[:notice] = 'Message sent!'
 	    @card = @deck.cards.create(card_params)
 	    respond_to do |format|
 	      if @card.save
-	        format.html { redirect_to deck_path(@deck.id), notice: 'Card was successfully created.' }
-	        format.json { render :show, status: :created, location: @card }
+	        format.html { redirect_to deck_path(@deck.id)}
+	        format.json { render :show, status: :created, location: @deck }
 	      else
 	        format.html { render :new }
 	        format.json { render json: @card.errors, status: :unprocessable_entity }
@@ -68,5 +62,13 @@ class CardsController < ApplicationController
 	private
 	 def card_params
       params.require(:card).permit(:prompt, :answer)
-    end
+     end
+
+    def find_card
+	  @card = Card.find(params[:id])
+	end
+
+	def find_deck
+	  @deck = Deck.find(params[:deck_id])
+	end
 end

@@ -1,8 +1,16 @@
 %p#notice= notice
+- if @card.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@card.errors.count, "error")} prohibited this deck from being saved:"
+    %ul
+      - @card.errors.full_messages.each do |msg|
+        %li= "Message: " + msg
+        %li= @card.deck_id
 %h1
   -playClass = "btn btn-primary glyphicon glyphicon-play"
   -if @cards.size == 0
     -playClass = playClass + " disabled"
+
   %div 
     = @deck.title
     = link_to '', deck_card_present_path(@deck.id,0), id: "play", class: playClass
@@ -40,8 +48,15 @@
             .term-buttons
               = link_to '', edit_deck_card_path(@deck, card), class: "btn btn-info glyphicon glyphicon-pencil"
               = link_to '', deck_card_path(@deck,card), data: { confirm: 'Are you sure?', method: :Delete}, class: "btn btn-danger glyphicon glyphicon-remove"
-    .list-group-item
-      = link_to 'Add Card', new_deck_card_path(deck_id: @deck.id), class: "center btn btn-success glyphicon glyphicon-plus"
+    .list-group-item-new{id: "term-input-container"} 
+      = form_for :card, url: deck_cards_path(deck_id: @deck) do |f|
+        .inner-term
+          %div{class: "term-input"}
+            = f.text_field :prompt, placeholder: "Term", class: "wide"
+          %div{class: "term-input"}
+            = f.text_field :answer, placeholder: "Definition", class: "wide"
+          .term-buttons
+            = f.button :button, class: 'btn btn-success' do 
+              %span.glyphicon.glyphicon-plus
 %p
   = link_to '', decks_path, class: "btn btn-warning glyphicon glyphicon-arrow-left"
-  

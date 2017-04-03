@@ -1,12 +1,4 @@
 = form_for :card, url: deck_cards_path(@deck.id) do |f|
-  - if @card.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@card.errors.count, "error")} prohibited this deck from being saved:"
-      %ul
-        - @card.errors.full_messages.each do |msg|
-          %li= "Message: " + msg
-          %li= @card.deck_id
-
   .field
     = f.label :prompt, "Front"
     = f.text_field :prompt, placeholder: "Term" 
@@ -18,6 +10,5 @@
     -#This button should be able to add new cards and edit existing cards.
     
     = link_to '', deck_path(@deck), class: "btn btn-warning glyphicon glyphicon-arrow-left"
-    \|
     = f.button :button, class: 'btn btn-success' do 
       %span.glyphicon.glyphicon-ok
