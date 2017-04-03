@@ -31,10 +31,11 @@ $(document).on('turbolinks:load', function() {
     $('#card').toggleClass('flipped');
   });
 
-  $('#add-card').click(function() {
-    $('#add-card-container').hide();
-    $('#term-input-container').show();
+  $('#add-deck').click(function() {
+    $('#new-deck').removeClass("hidden");
   })
 
-  
+  $('#cancel-deck').click(function() {
+    $('#new-deck').addClass("hidden");
+  })
 })

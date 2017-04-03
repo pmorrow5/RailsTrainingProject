@@ -1,11 +1,11 @@
 class DecksController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_deck, only: [:show, :edit, :update, :destroy, :present]
   
   # GET /decks
   # GET /decks.json
   def index
-    @decks = Deck.all
+    @decks = Deck.all.order("id DESC")
+    @deck = Deck.new
   end
 
   # GET /decks/1
@@ -27,7 +27,7 @@ class DecksController < ApplicationController
 
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to @deck}
+        format.html { redirect_to decks_path}
         format.json { render :show, status: :created, location: @deck }
       else
         format.html { render :new }

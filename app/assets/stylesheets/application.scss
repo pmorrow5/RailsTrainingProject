@@ -92,6 +92,10 @@ nav {
   margin:auto;
 }
 
+.deck-input{
+  margin:10px;
+}
+
 .deck-descrip{
   color: #9e8a4c;
 }
@@ -99,6 +103,13 @@ nav {
 .card-title{
   position: relative;
   top:20%;
+}
+
+.deck-card-count{
+  color: #9e8a4c;
+  position: absolute;
+  bottom: 50%;
+  right: 45%;
 }
 
 .deck-button{

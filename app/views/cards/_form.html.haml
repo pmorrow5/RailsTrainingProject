@@ -1,4 +1,10 @@
 = form_for :card, url: deck_cards_path(@deck.id) do |f|
+  - if @card.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@deck.errors.count, "error")} prohibited this deck from being saved:"
+      %ul
+        - @card.errors.full_messages.each do |msg|
+          %li= "Message: " + msg
   .field
     = f.label :prompt, "Front"
     = f.text_field :prompt, placeholder: "Term" 

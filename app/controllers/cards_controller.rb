@@ -1,5 +1,4 @@
 class CardsController < ApplicationController
-	before_action :authenticate_user!
 	before_action :find_card, only: [:show, :edit, :update, :destroy]
 	before_action :find_deck, only: [:create, :edit, :update, :destroy, :index, :show, :new, :present]
 
@@ -42,13 +41,14 @@ class CardsController < ApplicationController
   end
 
 	def create
-		flash.now[:notice] = 'Message sent!'
+		flash.now[:notice] = 'Created!'
 	    @card = @deck.cards.create(card_params)
 	    respond_to do |format|
 	      if @card.save
 	        format.html { redirect_to deck_path(@deck.id)}
 	        format.json { render :show, status: :created, location: @deck }
 	      else
+	      	flash.now[:notice] = 'Not Saved!'
 	        format.html { render :new }
 	        format.json { render json: @card.errors, status: :unprocessable_entity }
 	      end
